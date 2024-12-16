@@ -13,6 +13,7 @@ import browserHistory from './browser-history';
 import { useAppSelector } from './hooks';
 import LoadingScreen from './pages/loading-screen/laoding-screen';
 import ProductsScreen from './pages/products-screen/products-screen';
+import NotFoundScreen from './pages/not-found-screen/not-found-screen';
 
 
 
@@ -32,16 +33,13 @@ function App() {
   return (
 
 
-    <HistoryRouter history={browserHistory}>
+    <HistoryRouter history={browserHistory} basename="/test202412-1">
       <Routes>
-        <Route
-          path={AppRoute.Main}
-          element={<MainScreen />}
-        >
-        </Route>
+        <Route path={AppRoute.Main} element={<MainScreen />} />
         <Route path="/products" element={<ProductsScreen />} />
         <Route path="/products/:id" element={<ProductDetailScreen />} />
         <Route path="/create-product" element={<CreateProductScreen />} />
+        <Route path="*" element={<NotFoundScreen />} />
       </Routes>
     </HistoryRouter>
 
